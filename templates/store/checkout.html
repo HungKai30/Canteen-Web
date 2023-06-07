@@ -14,7 +14,7 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title mb-4">Billing Address</h4>
-            <form action="" method ="POST">
+            <form action="{% url 'place_order' %}" method ="POST">
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="col form-group">
@@ -75,19 +75,7 @@
                     <dt>Total price:</dt>
                     <dd class="text-right"> {{total}}VND </dd>
                   </dl>
-<dl class="dlist-align">
-                    <dt>Tax:</dt>
-                    <dd class="text-right"> {{tax}}</dd>
-                  </dl>
-                  <dl class="dlist-align">
-                    <dt>Total:</dt>
-                    <dd class="text-right text-dark b"><strong>{{grand_total}}</strong></dd>
-                  </dl> 
                   <hr>
-                  <p class="text-center mb-3">
-                      <img src="{% static './images/misc/payments.png' %}" height="26">
-                  </p>
-              
                 <button type ="submit" name ="submit" class="btn btn-primary btn-block"> Place Order </button>
                 <a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
                 </form>
